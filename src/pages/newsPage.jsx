@@ -1,6 +1,7 @@
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { addArticleList } from "../features/article/articleSlice"
+import { ArticleComponent } from "../components/ArticleComponent"
 
 
 export const NewsPage = () => {
@@ -19,10 +20,6 @@ export const NewsPage = () => {
     console.log(articleData)
     return <>
         <h4>News Section</h4>
-        {articleData.map((article,index) => <>
-            <h4>{article.title}</h4>
-            <h4>{article.summary}</h4>
-
-        </>)}
+        {articleData.map((article,index) => <ArticleComponent title={article.title} image={article.image} summary={article.summary}/>)}
     </>
 }
